@@ -18,7 +18,7 @@ namespace Rize.Tools
         private GUIStyle _blueBackgroundLabelStyle;
         private int _currentSelectedIndex;
 
-        [MenuItem("Examples/My Editor Window %g")]
+        [MenuItem("Tools/Quick Prefab Open %g")]
         public static void ShowExample()
         {
             FindPrefabs();
