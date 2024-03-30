@@ -4,7 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Rize.Tools
+namespace Tools
 {
     public class QuickPrefabOpenTool : EditorWindow
     {
@@ -75,7 +75,17 @@ namespace Rize.Tools
             foreach (var prefab in _allPrefabs)
             {
                 var fileName = Path.GetFileNameWithoutExtension(prefab);
-                if (fileName.ToLower().StartsWith(_inputText.ToLower()))
+                var inputElements = _inputText.Split(" ");
+                var isFitting = true;
+                foreach (var inputElement in inputElements)
+                {
+                    if (!fileName.ToLower().Contains(inputElement.ToLower()))
+                    {
+                        isFitting = false;
+                        break;
+                    }
+                }
+                if (isFitting)
                 {
                     _fittingPrefabs.Add(prefab);
                 }
